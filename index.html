@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Weather App</h1>
+            <ul class="nav-links">
+                <li><a href="#" id="add-city-link"><i class="fas fa-plus"></i> Add City</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="weather-app">
+        <div class="location-input">
+            <input type="text" id="location-input" placeholder="Enter city name">
+            <button id="add-city-btn"><i class="fas fa-plus"></i> Add City</button>
+        </div>
+
+        <div class="cities-section">
+            <h2>Watched Cities:</h2>
+            <div id="watched-cities" class="city-list"></div>
+        </div>
+
+        <div id="weather-info" class="weather-info">
+            <div id="city-image-container">
+            </div>
+            <div id="weather-details"></div>
+            <div id="forecast"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
