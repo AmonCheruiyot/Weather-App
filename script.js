@@ -1,5 +1,3 @@
-// script.js
-
 // Function to add city to watched cities list
 function addCity() {
     const city = document.getElementById('location-input').value.trim();
@@ -35,17 +33,63 @@ function displayWatchedCities() {
         const cityElement = createCityElement(city);
         watchedCitiesElement.appendChild(cityElement);
     });
+
+    // Add ad code to the sidebar
+    const sidebar = document.getElementById('sidebar');
+    const adContainer = document.createElement('div');
+    adContainer.classList.add('ad-container');
+    adContainer.innerHTML = `
+        <!-- Place your ad code here -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-1234567890"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    `;
+    sidebar.appendChild(adContainer);
 }
+
 
 // Function to create a city element
 function createCityElement(cityName) {
     const cityElement = document.createElement('div');
-    cityElement.textContent = cityName;
     cityElement.classList.add('city');
+
+    const cityNameElement = document.createElement('span');
+    cityNameElement.textContent = cityName;
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+    deleteIcon.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent the click event from propagating to the city element
+        deleteCity(cityName);
+    });
+
+    // Add a small space between the delete icon and city name
+    const space = document.createTextNode('\u00A0');
+
+    cityElement.appendChild(deleteIcon);
+    cityElement.appendChild(space); // Add space between icon and city name
+    cityElement.appendChild(cityNameElement);
+
     cityElement.addEventListener('click', function() {
         getWeather(cityName);
     });
+
     return cityElement;
+}
+
+// Function to delete a city from the watched cities list
+function deleteCity(cityName) {
+    let watchedCities = getWatchedCities();
+    watchedCities = watchedCities.filter(city => city !== cityName);
+    localStorage.setItem('watchedCities', JSON.stringify(watchedCities));
+    displayWatchedCities();
 }
 
 // Function to fetch city image
@@ -103,6 +147,13 @@ async function getWeather(city) {
 function initApp() {
     displayWatchedCities();
     document.getElementById('add-city-btn').addEventListener('click', addCity);
+
+    // Add event listener for Enter key press on input field
+    document.getElementById('location-input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            addCity();
+        }
+    });
 }
 
 // Run initialization when DOM content is loaded
