@@ -118,11 +118,13 @@ async function getWeather(city) {
         // Display weather details
         const weatherDetailsElement = document.getElementById('weather-details');
         weatherDetailsElement.innerHTML = `
+            <p style="text-decoration: underline;">${city} Weather Today</p>
             <p>Weather: ${data.weather[0].description}</p>
             <p>Temperature: ${data.main.temp}°C</p>
             <p>Humidity: ${data.main.humidity}%</p>
             <p>Wind Speed: ${data.wind.speed} m/s</p>
             <p>Pressure: ${data.main.pressure} hPa</p>
+            <p>Local Time: ${getLocalTime(data.timezone)}</p>
         `;
 
         // Display weather icon
@@ -142,6 +144,45 @@ async function getWeather(city) {
         alert('City not found. Please try again.');
     }
 }
+
+// Function to get local time of the city
+function getLocalTime(timezoneOffset) {
+    // Create a new Date object with the current UTC time
+    const utcTime = new Date();
+
+    // Calculate the local time by adding the timezone offset to the UTC time
+    const localTime = new Date(utcTime.getTime() + (timezoneOffset * 1000)); // Convert to milliseconds
+
+    // Return the local time as a Date object
+    return localTime;
+}
+
+// Function to update the local time display in the navigation bar
+function updateLocalTimeDisplay() {
+    const timeDisplay = document.getElementById('local-time'); // Get the element to display the local time
+    const currentTime = new Date(); // Get the current time
+    const localTime = getLocalTime(currentTime.getTimezoneOffset() * -60); // Get the local time
+
+    // Format the local time into a readable string
+    const options = {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZoneName: 'short'
+    };
+    const localTimeString = localTime.toLocaleTimeString('en-US', options);
+
+    // Update the time display element
+    timeDisplay.textContent = 'Local Time: ' + localTimeString;
+}
+
+// Call the function initially to display the time immediately
+updateLocalTimeDisplay();
+
+// Call the function every second to update the time
+setInterval(updateLocalTimeDisplay, 1000);
+
+
 
 // Function to initialize the app
 function initApp() {

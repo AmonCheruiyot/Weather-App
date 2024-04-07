@@ -8,13 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6909961495465610"
      crossorigin="anonymous"></script>
+     <link rel="icon" href="https://emojicdn.elk.sh/🌦️" type="image/png">
+     <link rel="shortcut icon" href="https://emojicdn.elk.sh/🌦️" type="image/png">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Weather App</h1>
-           <p> Have in more control of your day and avoid disaster due  to unexpected weather.</p>
+            <h1 class="logo"><i class="fas fa-cloud"></i> Weather App</h1>
+            <p id="local-time" class="time-display">Local Time: <span id="time-display"></span></p>
+           <p> Have more control of your day and avoid disaster due  to unexpected weather.</p>
         </div>
+        <div class="menu-items">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
     </nav>
     <div id="sidebar">
         <!-- Sidebar content goes here -->
@@ -33,10 +46,31 @@
         <div id="weather-info" class="weather-info">
             <div id="city-image-container">
             </div>
-            <div id="weather-details"></div>
+            <div id="weather-details" class="weather-details">
+                <!-- Weather details will be displayed here -->
+            </div>
             <div id="forecast"></div>
         </div>
     </div>
+    <div class="card-box">
+        <div class="card">
+            <i class="fa fa-About-gear"></i>
+            <h5>About</h5>
+            <div class="web">
+                <p>I build my websites considering the current trends, am perfectionist
+                    so expect nothing short of the best with a sprinkle of passionate.
+                </p>
+            </div>
+      </div>
+        <div class="card">
+            <i class="fa fa-contacts-gears"></i>
+            <h5>Contacts</h5>
+            <div class="web">
+                <p>I build my websites considering the current trends, am perfectionist
+                    so expect nothing short of the best with a sprinkle of passionate.
+                </p>
+            </div>
+        </div>
 
     <script src="script.js"></script>
 </body>
