@@ -3,206 +3,162 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #19191B;
+    background-color: #f5f5f5; /* Light gray background */
     color: #333;
+    text-align: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    text-align: left;
 }
 
 .navbar {
-    background-color: #007bff;
+    background-color: #007bff; /* Blue navbar */
     color: #fff;
-    padding: 10px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
+    padding: 20px; /* Increased padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 .logo {
     margin: 0;
-    font-size: 24px;
+    font-size: 28px; /* Slightly increased font size */
     color: #fff;
     display: flex;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
 }
 
-.logo i {
-    margin-right: 5px;
-}
-
-.nav-links {
+.menu-items ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-links li {
+.menu-items li {
     display: inline;
     margin-right: 20px;
 }
 
-.nav-links li:last-child {
+.menu-items li:last-child {
     margin-right: 0;
 }
 
-.nav-links a {
+.nav-button {
     color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #f0f0f0;
+.nav-button:hover {
+    background-color: #0056b3; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
 
-.local-time {
-    text-align: right;
-    margin-right: 20px;
-    color: #fff;
+.city-list {
+    display: flex; /* Change to flex to arrange items horizontally */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    margin: 0 -5px; /* Adjust margin for spacing between cities */
 }
 
-/* Weather App styles */
+.city {
+    background-color: #f0f0f0;
+    padding: 5px 10px; /* Adjust padding */
+    margin: 5px; /* Adjust margin for spacing between cities */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Adjust font size */
+}
+.city:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
+
 .weather-app {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.location-input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    padding: 30px; /* Increased padding */
 }
 
 .location-input input[type="text"] {
     flex: 1;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #007bff;
-    border-radius: 0;
+    padding: 15px;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
     outline: none;
     font-size: 16px;
 }
 
 .location-input input[type="text"]:focus {
-    border-bottom-color: #0056b3;
+    border-color: #0056b3; /* Darker blue on focus */
 }
 
 .location-input button {
-    padding: 10px 20px;
+    padding: 15px 25px; /* Increased padding */
     border: none;
-    border-radius: 4px;
-    background-color: #915cb6;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: normal;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #0056b3; /* Blue button */
+    color: #fff;
+    font-weight: bold;
     text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .location-input button:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    background-color: #004080; /* Darker blue on hover */
 }
 
-.city-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -5px;
-}
-
-.city {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.city:hover {
-    background-color: #e0e0e0;
-}
-
-.weather-info {
-    text-align: center;
-}
-
-#city-image-container {
-    margin-bottom: 20px;
-}
-
-#city-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-#city-image:hover {
-    transform: scale(1.1);
-}
-
-.weather-info #weather-details {
-    margin-bottom: 20px;
-}
-
-.weather-info #weather-details p {
-    margin: 5px 0;
-}
-
-.weather-info #forecast {
-    display: flex;
-    justify-content: space-around;
-}
-
-/* Font Awesome icons */
-.fas {
-    margin-right: 5px;
-}
-.card-box{
+.card-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
-}
-.card{
-    height: 200px;
-    width: 335px;
-    padding: 20px 35px;
-    border-radius: 20px;
-    margin: 15px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    color: white;
-    border: 1px solid;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 20px; /* Added gap between cards */
+    padding: 20px; /* Increased padding */
 }
 
-.card i{
+.card {
+    height: auto; /* Allow cards to expand with content */
+    width: calc(50% - 40px); /* 50% width with gap included */
+    padding: 30px; /* Increased padding */
+    border-radius: 15px; /* Rounded corners */
+    background-color: #007bff; /* Blue card background */
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Move card up on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.card i {
     font-size: 50px;
     display: block;
     text-align: center;
-    margin: 25px 0px;
-    color: goldenrod;
+    margin-bottom: 20px; /* Increased margin */
 }
-h5{
-    font: 25px;
+
+h5 {
+    font-size: 24px; /* Slightly increased font size */
     font-weight: bold;
     margin-bottom: 15px;
-
 }
-.web p{
+
+.web p {
     font-size: 16px;
-    line-height: 27px;
+    line-height: 24px; /* Reduced line height for better readability */
     margin-bottom: 25px;
 }

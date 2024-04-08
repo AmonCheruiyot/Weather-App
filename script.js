@@ -1,6 +1,7 @@
 // Function to add city to watched cities list
 function addCity() {
-    const city = document.getElementById('location-input').value.trim();
+    const cityInput = document.getElementById('location-input');
+    const city = cityInput.value.trim();
     if (!city) {
         alert('Please enter a city name.');
         return;
@@ -16,6 +17,9 @@ function addCity() {
     localStorage.setItem('watchedCities', JSON.stringify(watchedCities));
     displayWatchedCities();
     getWeather(city);
+
+    // Clear the input field
+    cityInput.value = '';
 }
 
 // Function to get watched cities from local storage
@@ -33,27 +37,7 @@ function displayWatchedCities() {
         const cityElement = createCityElement(city);
         watchedCitiesElement.appendChild(cityElement);
     });
-
-    // Add ad code to the sidebar
-    const sidebar = document.getElementById('sidebar');
-    const adContainer = document.createElement('div');
-    adContainer.classList.add('ad-container');
-    adContainer.innerHTML = `
-        <!-- Place your ad code here -->
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-1234567890"
-            data-ad-slot="1234567890"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    `;
-    sidebar.appendChild(adContainer);
 }
-
 
 // Function to create a city element
 function createCityElement(cityName) {
@@ -124,7 +108,6 @@ async function getWeather(city) {
             <p>Humidity: ${data.main.humidity}%</p>
             <p>Wind Speed: ${data.wind.speed} m/s</p>
             <p>Pressure: ${data.main.pressure} hPa</p>
-            <p>Local Time: ${getLocalTime(data.timezone)}</p>
         `;
 
         // Display weather icon
@@ -144,45 +127,6 @@ async function getWeather(city) {
         alert('City not found. Please try again.');
     }
 }
-
-// Function to get local time of the city
-function getLocalTime(timezoneOffset) {
-    // Create a new Date object with the current UTC time
-    const utcTime = new Date();
-
-    // Calculate the local time by adding the timezone offset to the UTC time
-    const localTime = new Date(utcTime.getTime() + (timezoneOffset * 1000)); // Convert to milliseconds
-
-    // Return the local time as a Date object
-    return localTime;
-}
-
-// Function to update the local time display in the navigation bar
-function updateLocalTimeDisplay() {
-    const timeDisplay = document.getElementById('local-time'); // Get the element to display the local time
-    const currentTime = new Date(); // Get the current time
-    const localTime = getLocalTime(currentTime.getTimezoneOffset() * -60); // Get the local time
-
-    // Format the local time into a readable string
-    const options = {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        timeZoneName: 'short'
-    };
-    const localTimeString = localTime.toLocaleTimeString('en-US', options);
-
-    // Update the time display element
-    timeDisplay.textContent = 'Local Time: ' + localTimeString;
-}
-
-// Call the function initially to display the time immediately
-updateLocalTimeDisplay();
-
-// Call the function every second to update the time
-setInterval(updateLocalTimeDisplay, 1000);
-
-
 
 // Function to initialize the app
 function initApp() {

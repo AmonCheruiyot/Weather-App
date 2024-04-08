@@ -14,24 +14,21 @@
 
 </head>
 <body>
+
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo"><i class="fas fa-cloud"></i> Weather App</h1>
-            <p id="local-time" class="time-display">Local Time: <span id="time-display"></span></p>
-           <p> Have more control of your day and avoid disaster due  to unexpected weather.</p>
+            <h1 class="logo"  id="Home"><i class="fa fa-clouds"></i> Weather App</h1>
+           <p> Have more control of your day and avoid disaster due  to unexpected weather changes.</p>
         </div>
         <div class="menu-items">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+             <li><a href="#Home" class="nav-button">Home</a></li>
+            <li><a href="#About" class="nav-button">About</a></li>
+            <li><a href="#Contacts" class="nav-button">Contacts</a></li>
             </ul>
         </div>
 
     </nav>
-    <div id="sidebar">
-        <!-- Sidebar content goes here -->
-    </div>
     <div class="weather-app">
         <div class="location-input">
             <input type="text" id="location-input" placeholder="Enter city name">
@@ -53,25 +50,24 @@
         </div>
     </div>
     <div class="card-box">
-        <div class="card">
+        <div class="card" id="About">
             <i class="fa fa-About-gear"></i>
             <h5>About</h5>
             <div class="web">
-                <p>I build my websites considering the current trends, am perfectionist
-                    so expect nothing short of the best with a sprinkle of passionate.
+                <p>I am a young enthusiastic developer I design my websites using html, css and javascript.
                 </p>
             </div>
       </div>
-        <div class="card">
+        <div class="card" id="Contacts">
             <i class="fa fa-contacts-gears"></i>
             <h5>Contacts</h5>
             <div class="web">
-                <p>I build my websites considering the current trends, am perfectionist
-                    so expect nothing short of the best with a sprinkle of passionate.
-                </p>
+                <p>Phone No: 0713702378</p>
+                <p>Email: kiprotichamon03@gmail.com</p>
             </div>
         </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+
 </body>
 </html>
