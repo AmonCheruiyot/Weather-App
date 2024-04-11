@@ -3,7 +3,8 @@
 ### Author : Amon Kiprotich April 9th 2024
 ****
 ## Project Description
-This Weather allows users to check the current weather conditions and forecasts for any city worldwide. The app will provide users with essential weather information such as temperature, humidity, wind speed, and weather conditions
+This Weather allows users to check the current weather conditions and forecasts for any city worldwide. The app will provide users with essential weather information such as temperature, humidity, wind speed, and weather conditions.
+This project satisfies CRUD and it consumes a public API from openweathermap to display weather details.
 ******
 
 ## SCREENSHOTS
